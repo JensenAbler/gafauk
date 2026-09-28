@@ -1,6 +1,4 @@
-# GAFAUK
-
-A music video in Xenolex tracing how one glyph got cracked, from GAFAUK and CODEX onward. Audio is synthesized live with Web Audio.
+# GAFAUK, an anagnorisis video
 
 Live at https://jensenabler.github.io/gafauk/
 
