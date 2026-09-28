@@ -7,7 +7,7 @@ body{background:#f3efe6;color:#1c1714;font-family:"Iowan Old Style","Palatino Li
 #wrap{position:fixed;left:0;top:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5vh}
 #frame{position:relative;width:var(--F);height:var(--F)}
 .scene{position:absolute;inset:0;opacity:0}
-.g{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none;will-change:transform,opacity}
+.g{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none}
 #wrap .red{color:#d8405a}
 .night #cap{font-style:normal;font-weight:500}
 .t{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;line-height:1;opacity:0}
