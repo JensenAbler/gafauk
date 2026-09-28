@@ -14,10 +14,8 @@
 <div id="bar"></div>
 <div id="hint"></div>
 <div class="over" id="start">
-  <div id="startglyph"></div>
-  <h1>how we learned about zenarchy</h1>
-  <p>a music video in xenolex, two and a half minutes. sound on (on iPhone, flip the silent switch off, since it mutes web audio). tap anywhere during playback to pause.</p>
-  <button id="go">play</button>
+  <div id="startsigil" role="img" aria-label="The Zenarchy sigil: the ZN box, the ark and the key"></div>
+  <button id="go" aria-label="Play GAFAUK: how we learned about zenarchy">play</button>
 </div>
 <div class="over" id="end">
   <h1>go as far as you know</h1>
@@ -47,7 +45,9 @@ function svgIn(parent,vb='0 0 100 100',par='none'){const v=document.createElemen
 function path(v,d,stroke,w){const p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.setAttribute('fill','none');p.setAttribute('stroke',stroke);p.setAttribute('stroke-width',w);p.setAttribute('stroke-linecap','round');p.setAttribute('stroke-linejoin','round');v.appendChild(p);return p}
 let kickEnv=0;
 
-document.getElementById('startglyph').appendChild(glyph('title','day'));
+{const box=document.getElementById('startsigil');
+[['ark',50,60,56],['gZN',22,26,13],['ki',78,26,7]].forEach(([k,x,y,w])=>{const g=G[k],e=glyph(k,'day');e.setAttribute('class','g');
+e.style.width=w+'%';e.style.height=(w*g.h/g.w*1.25)+'%';e.style.left=x+'%';e.style.top=y+'%';box.appendChild(e)})}
 
 /* 1. cover: title + A READ HER */
 {const s=scene(0,4);const ti=img(s,'title',80);const rh=[img(s,'rh_a',15),img(s,'rh_read',27),img(s,'rh_her',19)];
