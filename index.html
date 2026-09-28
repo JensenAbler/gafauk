@@ -90,9 +90,9 @@ const show=p=>a=>p.setAttribute('opacity',a.toFixed(3));return{o:show(o),e:show(
 
 /* 6. a box is two brackets: CODEX */
 {const s=scene(24,28);const c=img(s,'c',20),d=img(s,'d',20),cx=img(s,'codex',40);
-const lc=txt(s,'c',.07,'it'),ld=txt(s,'d',.07,'it'),lo=txt(s,'o',.07,'it'),le=txt(s,'e',.07,'it'),lx=txt(s,'x',.07,'it red'),w=txt(s,'codex',.13,'word'),parts=codexParts(cx);
+const lc=txt(s,'c',.07,'it'),ld=txt(s,'d',.07,'it'),w=txt(s,'codex',.13,'word'),parts=codexParts(cx);
 s.upd=l=>{const p=eo(seg(l,.4,1.6)),f=1-seg(l,2,2.4),fl=1-seg(l,1.2,1.6);P(c,30+14*p,44,f);P(d,70-14*p,44,f);P(lc,30+14*p,63,fl);P(ld,70-14*p,63,fl);
-const k=seg(l,1.9,2.4);P(cx,50,44,k,.9+.1*k);P(lo,50,15,seg(l,2.4,2.6));P(le,50,73,seg(l,2.6,2.8));P(lx,75,44,seg(l,3.2,3.4));parts.o(seg(l,2.4,2.6));parts.e(seg(l,2.6,2.8));parts.x(seg(l,3.2,3.4));P(w,50,89,seg(l,3.2,3.5))}}
+const k=seg(l,1.9,2.4);P(cx,50,44,k,.9+.1*k);parts.o(seg(l,2.4,2.6));parts.e(seg(l,2.6,2.8));parts.x(seg(l,3.2,3.4));P(w,50,89,seg(l,3.2,3.5))}}
 
 /* 7. read her -> her-mes -> th? */
 {const s=scene(28,32);const rh=[img(s,'rh_a',15),img(s,'rh_read',27),img(s,'rh_her',19)],he=img(s,'hermes',34),th=img(s,'thoth',22),lab=txt(s,'th?',.08,'it red');
