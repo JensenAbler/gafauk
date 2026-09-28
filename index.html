@@ -82,11 +82,19 @@ words.forEach((w,i)=>P(w,wp[i][0],wp[i][1],seg(l,2.4+i*.35,2.7+i*.35)*(1-seg(l,3
 const c=eo(seg(l,4,4.4));P(zn,22,22,c,.6+.4*c);P(ki,79,22,eo(seg(l,4.1,4.5)));
 L.forEach((e,i)=>{const t0=4.6+i*.35,o=seg(l,t0,t0+.2),m=eo(seg(l,7,7.6));P(e,pos[i][0]+(25+10*i-pos[i][0])*m,pos[i][1]+(92-pos[i][1])*m,o,1+.4*(1-seg(l,t0,t0+.4)))})}}
 
+/* The codex glyph's dot (o), three dots (e) and red x as separately scalable parts, bumped on the beat as the gloss names them. */
+function codexParts(v){const[ink,red]=[...v.querySelectorAll('path')],g=ink.parentNode,subs=ink.getAttribute('d').split(/(?=M)/),y=q=>+q.slice(1).trim().split(/[ ,]/)[1];
+const isO=q=>y(q)>120&&y(q)<150,isE=q=>y(q)<60,mk=ds=>{const p=document.createElementNS(NS,'path');p.setAttribute('d',ds.join(' '));p.setAttribute('fill',ink.getAttribute('fill'));g.appendChild(p);return p};
+const o=mk(subs.filter(isO)),e=mk(subs.filter(isE));ink.setAttribute('d',subs.filter(q=>!isO(q)&&!isE(q)).join(' '));
+const at=(p,x0,y0)=>k=>p.setAttribute('transform',`translate(${x0} ${y0}) scale(${k.toFixed(3)}) translate(${-x0} ${-y0})`);
+return{o:at(o,79,141),e:at(e,94,43),x:at(red,82,78)}}
+
 /* 6. a box is two brackets: CODEX */
 {const s=scene(24,28);const c=img(s,'c',20),d=img(s,'d',20),cx=img(s,'codex',40);
-const lc=txt(s,'c',.07,'it'),ld=txt(s,'d',.07,'it'),lo=txt(s,'o',.07,'it'),le=txt(s,'e',.07,'it'),lx=txt(s,'x',.07,'it red'),w=txt(s,'codex',.13,'word');
+const lc=txt(s,'c',.07,'it'),ld=txt(s,'d',.07,'it'),w=txt(s,'codex',.13,'word');
+const parts=codexParts(cx),bump=(l,t0)=>l<t0?1:1+.7*Math.exp(-5*(l-t0)/.25);
 s.upd=l=>{const p=eo(seg(l,.4,1.6)),f=1-seg(l,2,2.4),fl=1-seg(l,1.2,1.6);P(c,30+14*p,44,f);P(d,70-14*p,44,f);P(lc,30+14*p,63,fl);P(ld,70-14*p,63,fl);
-const k=seg(l,1.9,2.4);P(cx,50,44,k,.9+.1*k);P(lo,50,15,seg(l,2.4,2.6));P(le,50,73,seg(l,2.6,2.8));P(lx,75,44,seg(l,2.8,3));P(w,50,89,seg(l,3.2,3.5))}}
+const k=seg(l,1.9,2.4);P(cx,50,44,k,.9+.1*k);parts.o(bump(l,2.5));parts.e(bump(l,2.75));parts.x(bump(l,3.25));P(w,50,89,seg(l,3.2,3.5))}}
 
 /* 7. read her -> her-mes -> th? */
 {const s=scene(28,32);const rh=[img(s,'rh_a',15),img(s,'rh_read',27),img(s,'rh_her',19)],he=img(s,'hermes',34),th=img(s,'thoth',22),lab=txt(s,'th?',.08,'it red');
@@ -182,6 +190,7 @@ if(b===32&&s%4===0)snare(t,.35);if(b===33&&s%2===0)snare(t,.5);if(b===34)snare(t
 if((inR(b,16,34)||drop)&&s%2===0)bass(t,r+(drop&&s%4===2?12:0),STEP*1.7,drop?1.2:.75);
 if((inR(b,24,31)&&s%2===0)||((drop||inR(b,52,55))&&(drop||s%2===0)))pluck(t,ch[ARP[s%8]]+12,drop?.05:.045);
 if(b===14&&s===2)pop(t);
+if((b===26&&(s===8||s===12))||(b===27&&s===4))pluck(t,ch[3]+24,.06);
 if(b===32&&s===0)riser(t,BAR*3);
 if(b===36&&s===0){crash(t);sub(t)}if(b===52&&s===0)crash(t,.5)}
 
