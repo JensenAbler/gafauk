@@ -1,6 +1,6 @@
-# GAFAUK: how we learned about zenarchy
+# GAFAUK
 
-A music video in Xenolex tracing how the Zenarchy glyph got cracked, from GAFAUK and CODEX to ZN-ARK-KI and Thoth-Hermes. Audio is synthesized live with Web Audio.
+A music video in Xenolex tracing how one glyph got cracked, from GAFAUK and CODEX onward. Audio is synthesized live with Web Audio.
 
 Live at https://jensenabler.github.io/gafauk/
 

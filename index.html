@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>how we learned about zenarchy</title>
-<meta name="description" content="A music video in Xenolex tracing how we cracked the Zenarchy glyph.">
+<title>GAFAUK</title>
+<meta name="description" content="A music video in Xenolex.">
 <link rel="stylesheet" href="style.css">
 <script src="glyphs.js"></script>
 <script src="/portfolio-controls.js" defer></script>
@@ -14,8 +14,8 @@
 <div id="bar"></div>
 <div id="hint"></div>
 <div class="over" id="start">
-  <div id="startsigil" role="img" aria-label="The Zenarchy sigil: the ZN box, the ark and the key"></div>
-  <button id="go" aria-label="Play GAFAUK: how we learned about zenarchy">play</button>
+  <div id="startsigil" role="img" aria-label="A Xenolex sigil: a box, an ark and a key"></div>
+  <button id="go" aria-label="Play GAFAUK">play</button>
 </div>
 <div class="over" id="end">
   <h1>go as far as you know</h1>
@@ -96,7 +96,7 @@ const v=svgIn(s.r);const ln=bot.map(t=>{const p=path(v,`M${t.x} 58 L${t.x} 44`,'
 s.upd=l=>{const hit=l>=3;top.forEach(t=>P(t.e,t.x,34,hit?.12:1));bot.forEach((t,i)=>P(t.e,t.x,66,seg(l,.9+i*.3,1.2+i*.3),hit?1.18:1));
 ln.forEach((p,i)=>p.setAttribute('stroke-dashoffset',(14*(1-eo(seg(l,2+i*.2,2.6+i*.2)))).toFixed(2)))}}
 
-/* 9. the drop: Z over N, ZN-ARK-KI, ZENARCHY */
+/* 9. the drop: Z over N, ZN-ARK-KI, the reveal */
 {const s=scene(36,44,{hardIn:1});
 const box=document.createElement('div');box.className='t';box.style.lineHeight='0';box.style.width='60%';box.style.height='60%';s.r.appendChild(box);
 const v=svgIn(box,'0 0 100 100','xMidYMid meet');const gz=document.createElementNS(NS,'g'),gn=document.createElementNS(NS,'g');v.appendChild(gz);v.appendChild(gn);
