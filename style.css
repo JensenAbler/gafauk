@@ -19,7 +19,7 @@ body{background:#f3efe6;color:#1c1714;font-family:"Iowan Old Style","Palatino Li
 .big{letter-spacing:.02em}
 .ring{position:absolute;width:3.2%;height:3.2%;border:2px solid var(--ink);border-radius:50%;transform:translate(-50%,-50%);opacity:0}
 svg.ov{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
-#cap{height:15vh;width:min(92vw,620px);display:flex;align-items:center;justify-content:center;text-align:center;font-size:clamp(19px,4.4vmin,32px);line-height:1.25;font-style:italic;transition:opacity .22s;padding:0 2vw;box-sizing:border-box}
+#cap{height:15vh;width:min(92vw,620px);display:flex;align-items:center;justify-content:center;text-align:center;font-size:clamp(19px,4.4vmin,32px);line-height:1.25;font-style:italic;padding:0 2vw;box-sizing:border-box}
 #cap.off{opacity:0}
 #cap.hit{font-style:normal;font-weight:600;color:var(--red);font-size:clamp(26px,7vmin,54px)}
 #bar{position:fixed;left:0;bottom:0;height:2px;background:var(--red);width:0}
