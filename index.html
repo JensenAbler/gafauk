@@ -150,12 +150,13 @@ const CAPS=[[.6,'a read her.'],[2.3,'recipes for thought crime'],
 [44,'the red t is t, o, t'],[45.3,'add the h: thoth'],[46.3,'thoth-hermes. the god of writing, twice.'],[47.3,'a firmware update for the symbolic order'],
 [48,'and zenarchy is kerry thornley’s word'],[49.3,'one of the two who dreamed up discordia'],[50.4,'hail eris'],[51.3,'fnord'],
 [52,'so now you’re reading the book'],[53.3,'beat meant beaten down'],[54.4,'and beatific, if you ask kerouac'],[55.5,'go as far as you know']];
-/* Caption fades are driven per frame from the audio clock, like the scenes. A CSS opacity transition here never animated in iOS Safari, so captions popped. */
-const cap=document.getElementById('cap');let capI=-1;const CF=.09;
-function setCap(b){let i=-1;for(let k=0;k<CAPS.length;k++)if(b>=CAPS[k][0])i=k;const c=CAPS[i];
-if(i!==capI){capI=i;cap.textContent=c?c[1]:'';cap.classList.toggle('hit',!!(c&&c[2]))}
-if(!c||!c[1]){cap.style.opacity=0;return}const nx=i+1<CAPS.length?CAPS[i+1][0]:TOTAL;
-const fi=c[2]?1:seg(b,c[0],c[0]+CF),fo=1-seg(b,nx-CF,nx);cap.style.opacity=Math.min(fi,fo).toFixed(3)}
+/* Caption fades are driven per frame from the audio clock, because the CSS opacity transition never animated in iOS Safari.
+   Timing reproduces the original transition: fade out over .22s, swap text at .18s (instantly for 'hit'), fade back up from wherever it got to. */
+const cap=document.getElementById('cap');let capI=-1;const CO=.22,CD=.18,ez=t=>t*t*(3-2*t);
+function setCap(b){let i=-1;for(let k=0;k<CAPS.length;k++)if(b>=CAPS[k][0])i=k;const c=CAPS[i],p=CAPS[i-1],pv=!!(p&&p[1]),dt=c?(b-c[0])*BAR:1e9;
+const sw=!c||!!c[2]||dt>=CD,show=sw?c:p,tx=show?show[1]:'';if(cap.textContent!==tx)cap.textContent=tx;cap.classList.toggle('hit',!!(show&&show[2]));
+let o;if(!sw)o=pv?1-ez(cl(dt/CO)):0;else if(!c||!c[1])o=0;else if(c[2])o=1;else{const o0=pv?1-ez(CD/CO):0;o=o0+(1-o0)*ez(cl((dt-CD)/(CO*(1-o0))))}
+cap.style.opacity=o.toFixed(3)}
 
 /* ---------- audio ---------- */
 let AC,master,rev,dly,NB;
